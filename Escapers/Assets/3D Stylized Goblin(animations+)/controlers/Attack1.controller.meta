@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a8782b72a44637e46842d20ccc01950a
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 252473
+  packageName: 3D Stylized Goblin(animations+)
+  packageVersion: 1.0.0
+  assetPath: Assets/3D Stylized Goblin(animations+)/controlers/Attack1.controller
+  uploadId: 577336
