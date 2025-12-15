@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/[TEST]  Rodrigo.unity
     guid: b597c59262f7b964c811b6b3033ac09f
+  - enabled: 1
+    path: Assets/Scenes/Main scene.unity
+    guid: b94ee59f12f411f488e6df197429e012
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
