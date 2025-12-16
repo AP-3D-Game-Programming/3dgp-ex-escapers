@@ -1,48 +1,40 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerPickup : MonoBehaviour
 {
-    // Onzichtbare inventory (lijst van opgepakte objecten)
-    private List<string> inventory = new List<string>();
+    private Collider nearbyPickup;
 
-    // Hoe dichtbij je moet zijn om iets op te pakken
-    public float pickupRange = 2f;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Pickup"))
+        {
+            Debug.Log("In de buurt van: " + other.name);
+            nearbyPickup = other;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Pickup") && nearbyPickup == other)
+        {
+            Debug.Log("Niet meer in de buurt van: " + other.name);
+            nearbyPickup = null;
+        }
+    }
 
     void Update()
     {
-        // Check of speler op "E" drukt
-        if (Input.GetKeyDown(KeyCode.E))
+        if (nearbyPickup != null && Input.GetKeyDown(KeyCode.E))
         {
-            TryPickup();
+            string itemName = nearbyPickup.name;
+
+            // Voeg ALTIJD toe aan de inventory lijst
+            InventoryManager.Instance.AddItem(itemName);
+
+            // Verwijder het object uit de wereld
+            Destroy(nearbyPickup.gameObject);
+
+            nearbyPickup = null;
         }
-    }
-
-    void TryPickup()
-    {
-        // Zoek alle colliders in de buurt
-        Collider[] hits = Physics.OverlapSphere(transform.position, pickupRange);
-
-        foreach (Collider hit in hits)
-        {
-            // Check of het object de juiste tag heeft
-            if (hit.CompareTag("Pickup"))
-            {
-                // Voeg toe aan inventory (bijvoorbeeld de naam van het object)
-                inventory.Add(hit.gameObject.name);
-
-                // Verwijder het object uit de wereld
-                Destroy(hit.gameObject);
-
-                Debug.Log("Opgepakt: " + hit.gameObject.name);
-                break; // Stop na het eerste object
-            }
-        }
-    }
-
-    // Optioneel: functie om te checken of speler een item heeft
-    public bool HasItem(string itemName)
-    {
-        return inventory.Contains(itemName);
     }
 }
