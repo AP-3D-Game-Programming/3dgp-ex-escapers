@@ -4,34 +4,88 @@ public class PlayerPickup : MonoBehaviour
 {
     private Collider nearbyPickup;
 
+    // Dagger die al onder de hand hangt maar onzichtbaar start
+    public GameObject daggerInHand;
+
+    private void Start()
+    {
+        Debug.Log("PlayerPickup START → Script actief op object: " + gameObject.name);
+
+        if (daggerInHand == null)
+            Debug.LogWarning("daggerInHand is NIET toegewezen in de Inspector!");
+        else
+            Debug.Log("daggerInHand is correct toegewezen: " + daggerInHand.name);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Pickup"))
+        Debug.Log("OnTriggerEnter → geraakt object: " + other.name + " | Tag: " + other.tag);
+
+        if (other.CompareTag("PickUp"))
         {
-            Debug.Log("In de buurt van: " + other.name);
+            Debug.Log("Pickup gedetecteerd: " + other.name);
             nearbyPickup = other;
+        }
+        else
+        {
+            Debug.Log("Object heeft GEEN Pickup tag.");
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Pickup") && nearbyPickup == other)
+        Debug.Log("OnTriggerExit → verlaten object: " + other.name);
+
+        if (other.CompareTag("PickUp") && nearbyPickup == other)
         {
-            Debug.Log("Niet meer in de buurt van: " + other.name);
+            Debug.Log("Pickup verlaten: " + other.name);
             nearbyPickup = null;
         }
     }
 
     void Update()
     {
-        if (nearbyPickup != null && Input.GetKeyDown(KeyCode.E))
+        if (nearbyPickup == null)
+            return;
+
+        // Debug om te zien dat Update loopt
+        Debug.Log("Update → dichtbij pickup: " + nearbyPickup.name);
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("E ingedrukt → poging tot oppakken");
+
             string itemName = nearbyPickup.name;
 
-            // Voeg ALTIJD toe aan de inventory lijst
-            InventoryManager.Instance.AddItem(itemName);
+            // Inventory toevoegen
+            if (InventoryManager.Instance != null)
+            {
+                Debug.Log("InventoryManager gevonden → item toevoegen: " + itemName);
+                InventoryManager.Instance.AddItem(itemName);
+            }
+            else
+            {
+                Debug.LogError("InventoryManager.Instance is NULL! Staat er wel een InventoryManager in de scene?");
+            }
 
-            // Verwijder het object uit de wereld
+            // Special case: dagger
+            if (itemName.ToLower().Contains("dagger"))
+            {
+                Debug.Log("Dagger gedetecteerd → in-hand dagger activeren");
+
+                if (daggerInHand != null)
+                {
+                    daggerInHand.SetActive(true);
+                    Debug.Log("daggerInHand succesvol geactiveerd");
+                }
+                else
+                {
+                    Debug.LogError("daggerInHand is NULL! Sleep het object in de Inspector!");
+                }
+            }
+
+            // Wereld-object verwijderen
+            Debug.Log("Wereld-object verwijderen: " + nearbyPickup.name);
             Destroy(nearbyPickup.gameObject);
 
             nearbyPickup = null;

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d55aecda8e82b1a49a2e2122e0d99e85
+timeCreated: 1505150582
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 100125
+  packageName: Fantasy demon dagger
+  packageVersion: 1.0
+  assetPath: Assets/Dagger/scene/dagger.unity
+  uploadId: 201075

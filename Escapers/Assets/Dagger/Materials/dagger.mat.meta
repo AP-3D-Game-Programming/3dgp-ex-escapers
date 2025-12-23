@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e6707665d5ff5c24d8fd19c03c1b9288
+timeCreated: 1505149880
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 100125
+  packageName: Fantasy demon dagger
+  packageVersion: 1.0
+  assetPath: Assets/Dagger/Materials/dagger.mat
+  uploadId: 201075
