@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 21aa50131bc134f04a14efdbeb7686be
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_PipelineAsset: {fileID: 11400000, guid: 8868c7002795a6447b8171c6608a3498, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 270082
+  packageName: Statue-Monster
+  packageVersion: 1.0
+  assetPath: Assets/Statue Monster URP/Settings/AutoLoadPipelineAsset.cs
+  uploadId: 682584
