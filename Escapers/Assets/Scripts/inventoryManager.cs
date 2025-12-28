@@ -24,4 +24,16 @@ public class InventoryManager : MonoBehaviour
     {
         return inventory.Contains(itemName);
     }
+    public void RemoveItem(string itemName)
+    {
+        if (inventory.Contains(itemName))
+        {
+            inventory.Remove(itemName);
+            Debug.Log("Item verwijderd: " + itemName);
+        }
+        else
+        {
+            Debug.Log("Kan item niet verwijderen, niet gevonden: " + itemName);
+        }
+    }
 }

@@ -52,8 +52,10 @@ public class PlayerPickup : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (pickupaudio != null)
-            pickupaudio.Play();
-            string itemName = nearbyPickup.name;
+                pickupaudio.Play();
+
+            // FIX: clone verwijderen uit de naam
+            string itemName = nearbyPickup.name.Replace("(Clone)", "").Trim();
 
             // UI verbergen
             if (pickupText != null)
