@@ -26,7 +26,7 @@ public class PlayerPickup : MonoBehaviour
             // UI tonen
             if (pickupText != null)
             {
-                pickupText.text = $"Press E to pick up {other.name}";
+                pickupText.text = $"[E] Pick up {other.name}";
                 pickupText.gameObject.SetActive(true);
             }
         }
