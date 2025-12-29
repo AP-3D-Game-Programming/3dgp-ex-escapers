@@ -109,6 +109,11 @@ public class AltarProximity : MonoBehaviour
             // Interactie uitschakelen
             playerInside = false;
 
+            // Runes laten verschijnen
+            RuneManager manager = FindObjectOfType<RuneManager>();
+            if (manager != null)
+                manager.RevealRunes();
+
             // Finale tekst tonen
             StartCoroutine(ShowCompletedText());
         }
