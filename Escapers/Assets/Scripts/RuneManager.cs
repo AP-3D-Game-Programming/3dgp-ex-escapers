@@ -53,4 +53,5 @@ public class RuneManager : MonoBehaviour
                 tmp.text = "Runes missing: " + runesLeft;
         }
     }
+    public bool AllRunesDestroyed() { return runesLeft <= 0; }
 }
