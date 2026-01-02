@@ -3,10 +3,13 @@ using UnityEngine;
 public class FinaleController : MonoBehaviour
 {
     [Header("Finale Objects")]
-    public GameObject stone;              // De steen die moet vallen
+    public GameObject stone;              // De steen die moet verdwijnen
     public GameObject magicHoldEffect;    // Particle/magic die de steen tegenhoudt
     public FinalRuneManager runeManager;  // Finale RuneManager
     public GameObject monster;            // Monster dat verpletterd wordt
+
+    [Header("Sound")]
+    public AudioClip impactSound;         // Geluid wanneer steen verdwijnt
 
     [Header("Timer")]
     public FinalRoomTimer finalTimer;     // De 2-minuten timer
@@ -19,11 +22,6 @@ public class FinaleController : MonoBehaviour
         // Magic uit bij start
         if (magicHoldEffect != null)
             magicHoldEffect.SetActive(false);
-
-        // Steen mag niet vallen tot runes klaar zijn
-        Rigidbody rb = stone.GetComponent<Rigidbody>();
-        if (rb != null)
-            rb.isKinematic = true;
     }
 
     // Wordt aangeroepen door FinalRopeCut
@@ -52,10 +50,13 @@ public class FinaleController : MonoBehaviour
         if (magicHoldEffect != null)
             magicHoldEffect.SetActive(false);
 
-        // Steen laten vallen
-        Rigidbody rb = stone.GetComponent<Rigidbody>();
-        if (rb != null)
-            rb.isKinematic = false;
+        // Impact sound
+        if (impactSound != null)
+            AudioSource.PlayClipAtPoint(impactSound, stone.transform.position);
+
+        // Steen verwijderen
+        if (stone != null)
+            Destroy(stone);
 
         // Monster vernietigen
         if (monster != null)
