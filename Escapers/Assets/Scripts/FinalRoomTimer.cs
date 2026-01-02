@@ -4,35 +4,42 @@ using TMPro;
 public class FinalRoomTimer : MonoBehaviour
 {
     [Header("Timer Settings")]
-    public float timeRemaining = 120f; // 2 minuten
+    public float startTime = 120f; // 2 minuten
+    private float timeRemaining;
     private bool timerRunning = false;
 
     [Header("UI")]
-    public GameObject timerUI;          // Het UI object (TextMeshPro)
-    private TextMeshProUGUI timerText;  // De TMP component
+    public GameObject timerUI;
+    private TextMeshProUGUI timerText;
 
     private LivesManager livesManager;
 
     private void Start()
     {
-        // LivesManager zoeken
         livesManager = FindObjectOfType<LivesManager>();
+
+        timeRemaining = startTime;
 
         if (timerUI != null)
         {
             timerText = timerUI.GetComponent<TextMeshProUGUI>();
-            timerUI.SetActive(false); // timer is onzichtbaar tot speler binnenkomt
+            timerUI.SetActive(false);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !timerRunning)
+        if (other.CompareTag("Player"))
         {
+            // Timer resetten bij binnenkomen
+            timeRemaining = startTime;
             timerRunning = true;
 
             if (timerUI != null)
+            {
                 timerUI.SetActive(true);
+                timerText.text = "02:00"; // UI reset
+            }
         }
     }
 
@@ -67,7 +74,6 @@ public class FinalRoomTimer : MonoBehaviour
     {
         Debug.Log("Finale timer is afgelopen!");
 
-        // Leven verliezen + respawn
         if (livesManager != null)
             livesManager.LoseLife();
         else
