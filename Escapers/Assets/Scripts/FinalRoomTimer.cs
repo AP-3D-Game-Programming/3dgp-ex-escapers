@@ -73,4 +73,9 @@ public class FinalRoomTimer : MonoBehaviour
         else
             Debug.LogError("LivesManager niet gevonden in de scene!");
     }
+
+    public void StopTimer()
+    {
+        timerRunning = false;
+    }
 }

@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class RopeCut : MonoBehaviour
 {
-    [Header("Objects")]
-    public GameObject chandelier;     
-    public GameObject relicPrefab;    
-
     [Header("Settings")]
     public bool requiresDagger = true;
 
@@ -23,15 +19,8 @@ public class RopeCut : MonoBehaviour
         if (interactText != null)
             interactText.SetActive(false);
 
-        // Debug checks
         if (breakSound == null)
             Debug.Log("RopeCut: breakSound is NIET toegewezen");
-
-        if (chandelier == null)
-            Debug.Log("RopeCut: chandelier is NIET toegewezen");
-
-        if (relicPrefab == null)
-            Debug.Log("RopeCut: relicPrefab is NIET toegewezen");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -83,19 +72,16 @@ public class RopeCut : MonoBehaviour
         if (breakSound != null)
             AudioSource.PlayClipAtPoint(breakSound, transform.position);
 
-        // Spawn relic op vaste positie
-        Vector3 spawnPos = new Vector3(-5.9514f, 9.993f, -8.7396f);
-
-        if (relicPrefab != null)
-            Instantiate(relicPrefab, spawnPos, Quaternion.identity);
-
-        // Chandelier verwijderen
-        if (chandelier != null)
-            Destroy(chandelier);
-
         // UI verbergen
         if (interactText != null)
             interactText.SetActive(false);
+
+        // FinaleController informeren dat rope is gesneden
+        FinaleController finale = FindObjectOfType<FinaleController>();
+        if (finale != null)
+            finale.OnRopeCut();
+        else
+            Debug.LogError("FinaleController niet gevonden in de scene!");
 
         // Rope verwijderen
         Destroy(gameObject);
