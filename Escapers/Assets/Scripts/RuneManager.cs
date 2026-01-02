@@ -9,9 +9,6 @@ public class RuneManager : MonoBehaviour
 
     private int runesLeft;
 
-    // finale mode
-    public bool finaleActive = false;
-
     private void Start()
     {
         // Alle runes verbergen bij start
@@ -24,21 +21,12 @@ public class RuneManager : MonoBehaviour
     }
 
     public void RevealRunes() 
-    {
-        // Finale is al bezig → runes NIET opnieuw tonen
-        if (finaleActive)
-        {
-            Debug.Log("RuneManager: Finale is actief → runes worden niet opnieuw getoond");
-            return;
-        }
-
-        foreach (var rune in runes)
-            rune.SetActive(true);
-
-        if (missingText != null)
-            missingText.SetActive(true);
-
-        UpdateMissingText();
+    { 
+        foreach (var rune in runes) 
+            rune.SetActive(true); 
+        
+        if (missingText != null) 
+            missingText.SetActive(true); UpdateMissingText(); 
     }
 
     public void RuneDestroyed()
@@ -65,9 +53,5 @@ public class RuneManager : MonoBehaviour
                 tmp.text = "Runes missing: " + runesLeft;
         }
     }
-
-    public bool AllRunesDestroyed()
-    {
-        return runesLeft <= 0;
-    }
+    public bool AllRunesDestroyed() { return runesLeft <= 0; }
 }
