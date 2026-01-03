@@ -38,13 +38,13 @@ public class LivesManager : MonoBehaviour
         StartCoroutine(RespawnRoutine());
     }
 
-    private void UpdateLivesUI()
+    public void UpdateLivesUI()
     {
         if (livesText != null)
             livesText.text = "Lives: " + currentLives;
     }
 
-    private System.Collections.IEnumerator RespawnRoutine()
+    public System.Collections.IEnumerator RespawnRoutine()
     {
         // Fade in
         if (fadeScreen != null)
