@@ -16,6 +16,8 @@ public class GameOverController : MonoBehaviour
         quitButton.onClick.AddListener(OnQuitClicked);
         
         ShowGameOver();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true; 
     }
     
     private void OnReplayClicked()
