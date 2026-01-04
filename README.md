@@ -28,5 +28,5 @@ De speler probeert een veilige extract te bereiken. Om dit te doen moeten puzzel
 - Escape From Tarkov (extract-systeem en spanning)  
 - Puzzelgames met omgevingsinteractie  
 
-## Status
-De game bevindt zich in actieve ontwikkeling, met meerdere puzzels, extract-mechanics en finale-sequenties die momenteel worden getest en verfijnd.
+
+https://xandro03.itch.io/escapers
