@@ -2,7 +2,7 @@
 - Project name: Escapers
 - Unity version: Unity 6000.2.7f2
 - Active scene:
-  - Name: GameOver
+  - Name: Main scene
   - Tags:
     - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, PickUp
   - Layers:
