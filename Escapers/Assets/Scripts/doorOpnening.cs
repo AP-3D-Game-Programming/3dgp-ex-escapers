@@ -100,6 +100,7 @@ public class FinalDoorOpen : MonoBehaviour
             }
 
             OpenDoor();
+            
         }
     }
 

@@ -130,6 +130,8 @@ public class AltarProximity : MonoBehaviour
             completedText.SetActive(false);
 
         Debug.Log("Altar: finale tekst verdwenen");
+
+        EventManager.TriggerAltarCompleted();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -191,5 +193,7 @@ public class AltarProximity : MonoBehaviour
         }
 
         Debug.Log("AltarProximity: instructie tekst verdwenen");
+
+        EventManager.TriggerAltarStarted();
     }
 }
