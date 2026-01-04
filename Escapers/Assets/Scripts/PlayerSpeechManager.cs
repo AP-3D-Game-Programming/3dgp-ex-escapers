@@ -16,6 +16,8 @@ public class PlayerSpeechManager : MonoBehaviour
     [SerializeField] private SpeechData secondPuzzleSpeech;
     [SerializeField] private SpeechData altarStartSpeech;
     [SerializeField] private SpeechData thirdPuzzleSpeech;
+    [SerializeField] private SpeechData finalCutCompletedSpeech;
+    [SerializeField] private SpeechData finalCompletedSpeech;
 
     private Coroutine subtitleRoutine;
 
@@ -33,6 +35,8 @@ public class PlayerSpeechManager : MonoBehaviour
         EventManager.OnDaggerPickUp += PlaySecondPuzzleSpeech;
         EventManager.OnAltarStarted += PlayAltarStartSpeech;
         EventManager.OnAltarCompleted += PlayThirdPuzzleSpeech;
+        EventManager.OnFinalCutCompleted += PlayFinalCutSpeech;
+        EventManager.OnFinalCompleted += PlayFinalCompleted;
     }
 
     void OnDestroy()
@@ -40,11 +44,15 @@ public class PlayerSpeechManager : MonoBehaviour
         EventManager.OnDaggerPickUp -= PlaySecondPuzzleSpeech;
         EventManager.OnAltarStarted -= PlayAltarStartSpeech;
         EventManager.OnAltarCompleted -= PlayThirdPuzzleSpeech;
+        EventManager.OnFinalCutCompleted -= PlayFinalCutSpeech;
+        EventManager.OnFinalCompleted -= PlayFinalCompleted;        
     }
 
     private void PlaySecondPuzzleSpeech() => PlaySpeech(secondPuzzleSpeech);
     private void PlayAltarStartSpeech() => PlaySpeech(altarStartSpeech);
     private void PlayThirdPuzzleSpeech() => PlaySpeech(thirdPuzzleSpeech);
+    private void PlayFinalCutSpeech() => PlaySpeech(finalCutCompletedSpeech);
+    private void PlayFinalCompleted() => PlaySpeech(finalCompletedSpeech);
 
     public void PlaySpeech(SpeechData speech)
     {

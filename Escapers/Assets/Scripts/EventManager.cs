@@ -23,6 +23,8 @@ public static class EventManager
     public static event Action OnDaggerPickUp;
     public static event Action OnAltarStarted;
     public static event Action OnAltarCompleted;
+    public static event Action OnFinalCutCompleted;
+    public static event Action OnFinalCompleted;
 
     // Trigger methods for events
     public static void TriggerSceneLoading(string sceneName) => OnSceneLoading?.Invoke(sceneName);
@@ -38,4 +40,6 @@ public static class EventManager
     public static void TriggerDaggerPickUp() => OnDaggerPickUp?.Invoke();
     public static void TriggerAltarStarted() => OnAltarStarted?.Invoke();
     public static void TriggerAltarCompleted() => OnAltarCompleted?.Invoke();
+    public static void TriggerFinalCutCompleted() => OnFinalCutCompleted?.Invoke();
+    public static void TriggerFinalCompleted() => OnFinalCompleted?.Invoke();
 }

@@ -8,11 +8,7 @@
   - Layers:
     - Default, TransparentFX, Ignore Raycast, Obstacle, Water, UI
 - Active game object:
-<<<<<<< Updated upstream
-  - Name: Basement Wall Var1 (4)
-=======
-  - Name: Dungeon_Big_Passage
->>>>>>> Stashed changes
+  - Name: final entrance
   - Tag: Untagged
-  - Layer: Obstacle
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

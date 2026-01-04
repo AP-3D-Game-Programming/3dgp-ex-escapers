@@ -11,6 +11,8 @@ public class PuzzleInformationManager : MonoBehaviour
     [SerializeField] private PuzzleData secondPuzzleInformation;
     [SerializeField] private PuzzleData altarStartInformation;
     [SerializeField] private PuzzleData thirdPuzzleInformation;
+    [SerializeField] private PuzzleData finalCutCompletedInformation;
+    [SerializeField] private PuzzleData finalCompleteInformation;
 
     private PuzzleData currentData;
 
@@ -28,6 +30,8 @@ public class PuzzleInformationManager : MonoBehaviour
         EventManager.OnDaggerPickUp += ShowSecondPuzzleInformation;
         EventManager.OnAltarStarted += ShowAltarStartInformation;
         EventManager.OnAltarCompleted += ShowThirdPuzzleInformation;
+        EventManager.OnFinalCutCompleted += ShowFinalCutCompletedInformation;
+        EventManager.OnFinalCompleted += ShowFinalCompletedInformation;
     }
 
     void OnDestroy()
@@ -35,12 +39,16 @@ public class PuzzleInformationManager : MonoBehaviour
         EventManager.OnDaggerPickUp -= ShowSecondPuzzleInformation;
         EventManager.OnAltarStarted -= ShowAltarStartInformation;
         EventManager.OnAltarCompleted -= ShowThirdPuzzleInformation;
+        EventManager.OnFinalCutCompleted -= ShowFinalCutCompletedInformation;
+        EventManager.OnFinalCompleted -= ShowFinalCompletedInformation;
     }
 
     private void ShowSecondPuzzleInformation() => ShowPuzzleInformation(secondPuzzleInformation);
     private void ShowAltarStartInformation() => ShowPuzzleInformation(altarStartInformation);
     private void ShowThirdPuzzleInformation() => ShowPuzzleInformation(thirdPuzzleInformation);
-
+    private void ShowFinalCutCompletedInformation() => ShowPuzzleInformation(finalCutCompletedInformation);
+    private void ShowFinalCompletedInformation() => ShowPuzzleInformation(finalCompleteInformation);
+    
     private IEnumerator spawnCoroutine()
     {
         yield return new WaitForSeconds(5f);

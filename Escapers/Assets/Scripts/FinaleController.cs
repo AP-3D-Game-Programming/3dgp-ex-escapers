@@ -35,7 +35,10 @@ public class FinaleController : MonoBehaviour
 
         // Finale runes tonen
         if (runeManager != null)
+        {
             runeManager.RevealRunes();
+            EventManager.TriggerFinalCutCompleted();
+        }
     }
 
     // Wordt aangeroepen door FinalRuneManager wanneer alle runes kapot zijn
@@ -65,5 +68,7 @@ public class FinaleController : MonoBehaviour
         // Timer stoppen
         if (finalTimer != null)
             finalTimer.StopTimer();
+
+        EventManager.TriggerFinalCompleted();
     }
 }
