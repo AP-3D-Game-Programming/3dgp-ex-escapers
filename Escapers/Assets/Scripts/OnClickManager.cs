@@ -18,7 +18,7 @@ public static class OnClickManager
         RegisterButtonAction("Play", () => { }); 
         RegisterButtonAction("Pause", () => GameManager.PauseGame());
         RegisterButtonAction("Resume", () => GameManager.ResumeGame());
-        RegisterButtonAction("Restart", () => SceneManager.ReloadCurrentScene()); // this one is optional, so can be removed if it stays unused
+        RegisterButtonAction("Restart", () => SceneManager.LoadScene("Main scene")); // this one is optional, so can be removed if it stays unused
         RegisterButtonAction("MainMenu", () => SceneManager.LoadScene("MainMenu"));
         RegisterButtonAction("Quit", () => QuitGame());
     }

@@ -32,6 +32,7 @@ public class LivesManager : MonoBehaviour
         {
             Debug.Log("Game Over — geen levens meer");
             // hier kan je een echte game over scene laden
+            SceneManager.LoadScene("GameOver");
             return;
         }
 
