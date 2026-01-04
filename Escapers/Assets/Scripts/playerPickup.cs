@@ -69,6 +69,7 @@ public class PlayerPickup : MonoBehaviour
             {
                 if (daggerInHand != null)
                     daggerInHand.SetActive(true);
+                EventManager.TriggerDaggerPickUp();
             }
 
             Destroy(nearbyPickup.gameObject);

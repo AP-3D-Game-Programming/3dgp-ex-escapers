@@ -7,9 +7,7 @@ public class LoadingScreenManager : MonoBehaviour
 {
     [Header("Loading Screen UI")]
     [SerializeField] private GameObject loadingScreenPanel;
-    [SerializeField] private Slider progressBar;
     [SerializeField] private TextMeshProUGUI loadingText;
-    [SerializeField] private TextMeshProUGUI percentageText;
     
     [Header("Settings")]
     [SerializeField] private float minimumLoadTime = 1f;
@@ -135,13 +133,7 @@ public class LoadingScreenManager : MonoBehaviour
     }
     
     private void UpdateLoadingUI(float progress)
-    {
-        if (progressBar != null)
-            progressBar.value = progress;
-        
-        if (percentageText != null)
-            percentageText.text = $"{Mathf.RoundToInt(progress * 100)}%";
-        
+    {        
         if (loadingText != null)
         {
             if (progress < 0.33f)

@@ -20,6 +20,9 @@ public static class EventManager
     // Custom Game Events
     public static event Action OnPlayerDied;
     public static event Action<int> OnLevelCompleted;
+    public static event Action OnDaggerPickUp;
+    public static event Action OnAltarStarted;
+    public static event Action OnAltarCompleted;
 
     // Trigger methods for events
     public static void TriggerSceneLoading(string sceneName) => OnSceneLoading?.Invoke(sceneName);
@@ -32,19 +35,7 @@ public static class EventManager
     public static void TriggerButtonClicked(string buttonId) => OnButtonClicked?.Invoke(buttonId);
     public static void TriggerPlayerDied() => OnPlayerDied?.Invoke();
     public static void TriggerLevelCompleted(int level) => OnLevelCompleted?.Invoke(level);
-    
-    /// <summary>
-    /// Clear all event subscriptions
-    /// </summary>
-    public static void ClearAllEvents()
-    {
-        OnSceneLoading = null;
-        OnSceneLoaded = null;
-        OnGameStateChanged = null;
-        OnGameStarted = null;
-        OnGamePaused = null;
-        OnGameResumed = null;
-        OnGameOver = null;
-        OnButtonClicked = null;
-    }
+    public static void TriggerDaggerPickUp() => OnDaggerPickUp?.Invoke();
+    public static void TriggerAltarStarted() => OnAltarStarted?.Invoke();
+    public static void TriggerAltarCompleted() => OnAltarCompleted?.Invoke();
 }
