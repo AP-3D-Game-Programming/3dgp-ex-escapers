@@ -25,7 +25,7 @@ public class GameOverController : MonoBehaviour
     
     private void OnQuitClicked()
     {
-        OnClickManager.RegisterClick("Quit");
+        OnClickManager.RegisterClick("MainMenu");
     }
     
     private void OnBackFromSettings()
