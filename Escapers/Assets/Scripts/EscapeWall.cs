@@ -41,6 +41,6 @@ public class EscapeWall : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        SceneManager.LoadSceneInstant(menuSceneName);
+        GameSceneManager.LoadSceneInstant(menuSceneName);
     }
 }

@@ -42,7 +42,7 @@ public class PauseController : MonoBehaviour
         Time.timeScale = 0f;
 
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.visible = true; 
 
         OnClickManager.RegisterClick("Pause");
     }
@@ -55,14 +55,14 @@ public class PauseController : MonoBehaviour
         Time.timeScale = 1f;
 
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.visible = false; 
 
         OnClickManager.RegisterClick("Resume");        
     }
 
     private void OnResumeClicked()
     {
-        HidePauseMenu();
+        ResumeGame();
     }
     
     private void OnRestartClicked()

@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class GameSceneManager : MonoBehaviour
 {
     private static string currentScene;
     
-    static SceneManager()
+    static GameSceneManager()
     {
         UnityEngine.SceneManagement.SceneManager.sceneLoaded += HandleSceneLoaded;
     }

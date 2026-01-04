@@ -29,7 +29,7 @@ public class MainMenuController : MonoBehaviour
     
     private void OnPlayClicked()
     {
-        SceneManager.LoadScene("Main scene");
+        GameSceneManager.LoadScene("Main scene");
     }
     
     private void OnSettingsClicked()

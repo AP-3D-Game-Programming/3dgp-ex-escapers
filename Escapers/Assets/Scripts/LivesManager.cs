@@ -32,7 +32,9 @@ public class LivesManager : MonoBehaviour
         {
             Debug.Log("Game Over — geen levens meer");
             // hier kan je een echte game over scene laden
-            SceneManager.LoadScene("GameOver");
+
+            Time.timeScale = 1f;
+            GameSceneManager.LoadSceneInstant("GameOver");
             return;
         }
 
@@ -65,7 +67,7 @@ public class LivesManager : MonoBehaviour
         transform.position = respawnPoint.position;
 
         // 1 seconde wachten
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         // Fade out
         if (fadeScreen != null)

@@ -18,8 +18,17 @@ public static class OnClickManager
         RegisterButtonAction("Play", () => { }); 
         RegisterButtonAction("Pause", () => GameManager.PauseGame());
         RegisterButtonAction("Resume", () => GameManager.ResumeGame());
-        RegisterButtonAction("Restart", () => SceneManager.LoadScene("Main scene")); // this one is optional, so can be removed if it stays unused
-        RegisterButtonAction("MainMenu", () => SceneManager.LoadScene("MainMenu"));
+        RegisterButtonAction("Restart", () =>
+        {
+            Time.timeScale = 1f;
+            GameSceneManager.LoadSceneInstant("Main scene");
+        });
+
+        RegisterButtonAction("MainMenu", () =>
+        {
+            Time.timeScale = 1f;
+            GameSceneManager.LoadSceneInstant("MainMenu");
+        });
         RegisterButtonAction("Quit", () => QuitGame());
     }
     

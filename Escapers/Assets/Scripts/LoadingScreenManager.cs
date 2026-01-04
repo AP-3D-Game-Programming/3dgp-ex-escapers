@@ -42,7 +42,7 @@ public class LoadingScreenManager : MonoBehaviour
         else
         {
             Debug.LogError("LoadingScreenManager instance not found!");
-            SceneManager.LoadScene(sceneName);
+            GameSceneManager.LoadScene(sceneName);
         }
     }
     
